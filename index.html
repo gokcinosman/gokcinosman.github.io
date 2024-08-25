@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Journey of a Game Developer</title>
+    <title>Osman Gökçin - Game Developer</title>
     <style>
         :root {
             --bg-color: #1e2a3a;
@@ -11,6 +11,33 @@
             --accent-color: #61dafb;
             --card-bg: #2c3e50;
             --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-sidebar {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            background-color: var(--card-bg);
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .social-sidebar a {
+            margin: 5px 0;
+            transition: transform 0.3s ease;
+        }
+        .social-sidebar a:hover {
+            transform: scale(1.1);
+        }
+        .social-sidebar img {
+            width: 30px;
+            height: 30px;
+        }
+        .container {
+            margin-left: 50px; /* Sol kenar boşluğu için yer açın */
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -99,7 +126,20 @@
         .project-content {
             padding: 1rem;
         }
-        .project-link {
+        .projects-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+.sertifika-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffffff;
+}        .project-link {
             display: inline-block;
             margin-top: 1rem;
             padding: 0.5rem 1rem;
@@ -119,6 +159,13 @@
             background-color: var(--card-bg);
             padding: 2rem;
             border-radius: 8px;
+        }
+        .about-me-header {
+            text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffffff;
         }
         .about-me img {
             width: 200px;
@@ -166,23 +213,31 @@
 
 <body>
     <div class="container">
-        <div class="hero">
-            <h1>Journey of a Game Developer</h1>
-        </div>
+            <h2 class="about-me-header">About Me</h2>
+        
+            
+        <section class="section about-me">
+            <img src="https://avatars.githubusercontent.com/u/76004639?s=400&u=ff00f982075339fec4f22b29120bca4001f83ec5&v=4" alt="Profile Picture">
+            <div>
+                <h2>Osman Gökçin</h2>
+                <p>
+                    Hey there! I'm a passionate game developer whose journey began with the nostalgic beeps of Atari games. 
+                    That early fascination evolved into a mission: to breathe new life into the world of gaming.
+                </p>
+                <p>
+                    In an industry often stuck in repetitive patterns, I'm dedicated to crafting experiences that challenge the status quo. 
+                    My goal? To create games that aren't just played, but remembered.
+                </p>
+                <p>
+                    With a blend of retro appreciation and forward-thinking innovation, I'm always exploring new ways to make each game an unforgettable adventure. 
+                    Whether it's reimagining classic mechanics or inventing entirely new ones, I'm here to push the boundaries of what games can be.
+                </p>
+            </div>
+        </section>
 
-        <div class="social-links">
-            <a href="https://gokcinosman.itch.io" target="_blank" rel="noopener noreferrer" aria-label="Itch.io">
-                <img src="https://static.itch.io/images/itchio-textless-white.svg" alt="Itch.io">
-            </a>
-            <a href="https://www.linkedin.com/in/osmangokcin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-            </a>
-            <a href="https://github.com/gokcinosman" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <img src="https://img.icons8.com/?size=100&id=12599&format=png&color=000000" alt="GitHub Logo">
-            </a>
-        </div>
-
+        <h2 class="projects-header">Projects</h2>
         <section class="section projects">
+            
             <div class="project">
                 <img src="https://img.itch.zone/aW1nLzE1MTkzMDQ4LnBuZw==/315x250%23c/atJ4BX.png" alt="Fruit Ninja Clone" class="project-image">
                 <div class="project-content">
@@ -212,25 +267,8 @@
             </div>
         </section>
 
-        <section class="section about-me">
-            <img src="https://avatars.githubusercontent.com/u/76004639?s=400&u=ff00f982075339fec4f22b29120bca4001f83ec5&v=4" alt="Profile Picture">
-            <div>
-                <h2>About me</h2>
-                <p>
-                    Hey there! I'm a passionate game developer whose journey began with the nostalgic beeps of Atari games. 
-                    That early fascination evolved into a mission: to breathe new life into the world of gaming.
-                </p>
-                <p>
-                    In an industry often stuck in repetitive patterns, I'm dedicated to crafting experiences that challenge the status quo. 
-                    My goal? To create games that aren't just played, but remembered.
-                </p>
-                <p>
-                    With a blend of retro appreciation and forward-thinking innovation, I'm always exploring new ways to make each game an unforgettable adventure. 
-                    Whether it's reimagining classic mechanics or inventing entirely new ones, I'm here to push the boundaries of what games can be.
-                </p>
-            </div>
-        </section>
-
+       
+        <h2 class="sertifika-header">Certificates</h2>
         <section class="section certificates">
             <div class="certificate">
                 <a  href="https://www.credly.com/badges/3b2cc0b5-9b7b-4371-a336-58a7c6985c64/public_url" target="blank" rel="noopener noreferrer">
@@ -251,6 +289,17 @@
                 </a>
             </div>
         </section>
+        <div class="social-sidebar">
+            <a href="https://gokcinosman.itch.io" target="_blank" rel="noopener noreferrer" aria-label="Itch.io">
+                <img src="https://static.itch.io/images/itchio-textless-white.svg" alt="Itch.io">
+            </a>
+            <a href="https://www.linkedin.com/in/osmangokcin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/gokcinosman" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <img src="https://img.icons8.com/?size=100&id=12599&format=png&color=000000" alt="GitHub">
+            </a>
+        </div>
     </div>
     <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 </body>
