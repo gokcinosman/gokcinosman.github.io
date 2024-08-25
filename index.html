@@ -3,194 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Osman Gökçin</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <title>Journey of a Game Developer</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;700&display=swap');
+        :root {
+            --bg-color: #1e2a3a;
+            --text-color: #e0e0e0;
+            --accent-color: #61dafb;
+            --card-bg: #2c3e50;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #000000;
-            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
         }
-        h1, h2, h3, .font-game {
-            font-family: 'Orbitron', sans-serif;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
         }
-        #hero-canvas {
-            position: fixed;
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background-color: #2c3e50;
+            color: var(--accent-color);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        .social-links a:hover {
+            background-color: var(--accent-color);
+        }
+        .social-links img {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0) invert(1);
+        }
+        .section {
+            margin-top: 4rem;
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }.project-video {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        .project-video iframe {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
+            border: none;
         }
-        .neon-text {
-            text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff;
+        .project {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
         }
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(5px);
-            transition: all 0.3s ease-in-out;
+        .project:hover {
+            transform: translateY(-5px);
         }
-        .project-card:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
         }
-        .skill-tag {
-            background: linear-gradient(45deg, #00ffff, #00bfff);
-            color: #000000;
+        .project-content {
+            padding: 1rem;
         }
-        .scroll-nav {
-            position: fixed;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
+        .project-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
         }
-        .scroll-nav a {
-            display: block;
-            width: 10px;
-            height: 10px;
+        .project-link:hover {
+            background-color: #4fa8d5;
+        }
+        .about-me {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        .about-me img {
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
-            background-color: #ffffff;
-            margin: 10px 0;
-            transition: all 0.3s ease;
+            object-fit: cover;
         }
-        .scroll-nav a:hover, .scroll-nav a.active {
-            background-color: #00ffff;
-            box-shadow: 0 0 10px #00ffff;
+        .certificates {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .certificate {
+            text-align: center;
+            background-color: var(--card-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            width: 330px;
+            transition: transform 0.3s ease;
+        }
+        .certificate:hover {
+            transform: translateY(-5px);
+        }
+        .certificate img {
+            width: 300px;
+            height: 300px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+        }
+        .certificate a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .certificate p {
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+        .credly-badge {
+            width: 150px;
+            height: 270px;
         }
     </style>
 </head>
-<body class="bg-black">
-    <canvas id="hero-canvas"></canvas>
 
-    <nav class="scroll-nav">
-        <a href="#home" class="active"></a>
-        <a href="#projects"></a>
-        <a href="#skills"></a>
-        <a href="#contact"></a>
-    </nav>
-
-    <main>
-        <section id="home" class="h-screen flex items-center justify-center">
-            <div class="text-center">
-                <h1 class="text-6xl font-bold mb-4 neon-text">Osman Gökçin</h1>
-                <p class="text-xl mb-8">Crafting Digital Worlds & Immersive Experiences</p>
-                <a href="#projects" class="bg-transparent border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black font-bold py-2 px-6 rounded-full transition duration-300">Explore My Universe</a>
-            </div>
-        </section>
-
-        <section id="projects" class="py-20">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-12 neon-text">Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="project-card rounded-lg overflow-hidden">
-                        <img src="/api/placeholder/400/300" alt="Epic Adventure" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2 text-cyan-400">Epic Adventure</h3>
-                            <p>Open-world RPG game</p>
-                        </div>
-                    </div>
-                    <div class="project-card rounded-lg overflow-hidden">
-                        <img src="/api/placeholder/400/300" alt="Space Wars" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2 text-cyan-400">Space Wars</h3>
-                            <p>Multiplayer space simulation</p>
-                        </div>
-                    </div>
-                    <div class="project-card rounded-lg overflow-hidden">
-                        <img src="/api/placeholder/400/300" alt="Puzzle World" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2 text-cyan-400">Puzzle World</h3>
-                            <p>Brain-teasing puzzle game</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="py-20">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-12 neon-text">Skills</h2>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <span class="skill-tag px-4 py-2 rounded-full font-game">Unity</span>
-                    <span class="skill-tag px-4 py-2 rounded-full font-game">C#</span>
-                    <span class="skill-tag px-4 py-2 rounded-full font-game">SQL</span>
-                    <span class="skill-tag px-4 py-2 rounded-full font-game">Problem Solving</span>
-                    <span class="skill-tag px-4 py-2 rounded-full font-game">Quick Learning</span>
-                    <span class="skill-tag px-4 py-2 rounded-full font-game">Analytical Thinking</span>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="py-20">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-bold text-center mb-8 neon-text">Connect</h2>
-                <p class="text-center mb-8">Ready to embark on a digital adventure? Let's create something extraordinary together!</p>
-                <div class="flex justify-center space-x-4">
-                    <a href="mailto:contact@osmangokcinn.com" class="bg-transparent border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black font-bold py-2 px-6 rounded-full transition duration-300">Email</a>
-                    <a href="https://linkedin.com/in/osmangokcin" target="_blank" class="bg-transparent border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-black font-bold py-2 px-6 rounded-full transition duration-300">LinkedIn</a>
-                    <a href="https://github.com/gokcinosman" target="_blank" class="bg-transparent border-2 border-gray-400 text-gray-400 hover:bg-gray-400 hover:text-black font-bold py-2 px-6 rounded-full transition duration-300">GitHub</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-black text-white py-6">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2024 Osman Gokcin. All rights reserved.</p>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>Journey of a Game Developer</h1>
         </div>
-    </footer>
 
-    <script>
-        // Three.js background animation
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('hero-canvas'), alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        <div class="social-links">
+            <a href="https://gokcinosman.itch.io" target="_blank" rel="noopener noreferrer" aria-label="Itch.io">
+                <img src="https://static.itch.io/images/itchio-textless-white.svg" alt="Itch.io">
+            </a>
+            <a href="https://www.linkedin.com/in/osmangokcin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/gokcinosman" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <img src="https://img.icons8.com/?size=100&id=12599&format=png&color=000000" alt="GitHub Logo">
+            </a>
+        </div>
 
-        const geometry = new THREE.BufferGeometry();
-        const vertices = [];
-        for (let i = 0; i < 10000; i++) {
-            vertices.push(THREE.MathUtils.randFloatSpread(2000)); // x
-            vertices.push(THREE.MathUtils.randFloatSpread(2000)); // y
-            vertices.push(THREE.MathUtils.randFloatSpread(2000)); // z
-        }
-        geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-        const particles = new THREE.Points(geometry, new THREE.PointsMaterial({ color: 0x00ffff, size: 2 }));
-        scene.add(particles);
+        <section class="section projects">
+            <div class="project">
+                <img src="https://img.itch.zone/aW1nLzE1MTkzMDQ4LnBuZw==/315x250%23c/atJ4BX.png" alt="Fruit Ninja Clone" class="project-image">
+                <div class="project-content">
+                    <h3>Fruit Ninja Clone</h3>
+                    <p>Clone project of the classic Fruit Ninja game.</p>
+                
+                    <a href="https://gokcinosman.itch.io/fruit-ninja" target="_blank" rel="noopener noreferrer" class="project-link">Play on itch.io</a>
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-video">
+                    <iframe src="https://www.youtube.com/embed/ZzFMA8ts-t8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <div class="project-content">
+                    <h3>404 The Game</h3>
+                    <p>Developed during a 3-day jam. Utilizes mechanics such as Forced Perspective, Dynamic Laser Reflection, and Perspective Shift.</p>
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-video">
+                    <iframe src="https://www.youtube.com/embed/MoRzpuB4k1A" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <div class="project-content">
+                    <h3>Batman Arkham Combat Mechanic </h3>
+                    <p>A small attempt of the combat system used in the Batman series</p>
+                </div>
+            </div>
+        </section>
 
-        camera.position.z = 1000;
+        <section class="section about-me">
+            <img src="https://avatars.githubusercontent.com/u/76004639?s=400&u=ff00f982075339fec4f22b29120bca4001f83ec5&v=4" alt="Profile Picture">
+            <div>
+                <h2>About me</h2>
+                <p>
+                    Hey there! I'm a passionate game developer whose journey began with the nostalgic beeps of Atari games. 
+                    That early fascination evolved into a mission: to breathe new life into the world of gaming.
+                </p>
+                <p>
+                    In an industry often stuck in repetitive patterns, I'm dedicated to crafting experiences that challenge the status quo. 
+                    My goal? To create games that aren't just played, but remembered.
+                </p>
+                <p>
+                    With a blend of retro appreciation and forward-thinking innovation, I'm always exploring new ways to make each game an unforgettable adventure. 
+                    Whether it's reimagining classic mechanics or inventing entirely new ones, I'm here to push the boundaries of what games can be.
+                </p>
+            </div>
+        </section>
 
-        function animate() {
-            requestAnimationFrame(animate);
-            particles.rotation.x += 0.0005;
-            particles.rotation.y += 0.0005;
-            renderer.render(scene, camera);
-        }
-        animate();
-
-        // Scroll navigation
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.scroll-nav a');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - sectionHeight / 3) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
+        <section class="section certificates">
+            <div class="certificate">
+                <a  href="https://www.credly.com/badges/3b2cc0b5-9b7b-4371-a336-58a7c6985c64/public_url" target="blank" rel="noopener noreferrer">
+                    <img src="https://images.credly.com/size/340x340/images/03d1c2f6-6182-49bd-b5af-2ef6d28b5383/image.png" alt="Unity Junior Programmer Pathway">
+                  </a>
+                <p>Unity Game Development Badge</p>
+            </div>
+            <div class="certificate">
+                <a  href="https://verified.sertifier.com/en/verify/61693116220753/" target="blank" rel="noopener noreferrer">
+                    <img src="https://verified-bucket.s3.eu-central-1.amazonaws.com/badge/61693116220753.png" alt="Unity Game Development Badge">
+                  </a>
+                <p>Unity Game Development Badge</p>
+            </div>
+            <div class="certificate">
+                <a href="https://verified.sertifier.com/en/verify/59885505122165/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://verified-bucket.s3.eu-central-1.amazonaws.com/cert/59885505122165.png" alt="Google Game and Application Academy Certificate">
+                    <p>Google Game and Application Academy</p>
+                </a>
+            </div>
+        </section>
+    </div>
+    <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 </body>
 </html>
