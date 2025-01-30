@@ -255,35 +255,33 @@
 
         .social-sidebar {
             position: fixed;
-            left: 0;
+            left: 20px; /* Masaüstü için sol kenardan boşluk */
             top: 50%;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            padding: 10px;
+            gap: 10px;
             background-color: var(--card-bg);
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
             z-index: 1000;
         }
 
         @media (max-width: 768px) {
             .social-sidebar {
-                top: auto;
-                bottom: 0;
                 left: 50%;
+                top: auto;
+                bottom: 20px;
                 transform: translateX(-50%);
                 flex-direction: row;
                 padding: 10px;
                 background-color: var(--card-bg);
                 box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
             }
-            .social-sidebar a {
-                margin: 0 5px;
-            }
         }
 
         .social-sidebar a {
-            margin: 5px 0;
             transition: transform 0.3s ease;
         }
 
@@ -299,6 +297,18 @@
 </head>
 
 <body>
+    <div class="social-sidebar">
+        <a href="https://gokcinosman.itch.io" target="_blank" rel="noopener noreferrer" aria-label="Itch.io">
+            <img src="https://static.itch.io/images/itchio-textless-white.svg" alt="Itch.io">
+        </a>
+        <a href="https://www.linkedin.com/in/osmangokcin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+        </a>
+        <a href="https://github.com/gokcinosman" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <img src="https://img.icons8.com/?size=100&id=12599&format=png&color=000000" alt="GitHub">
+        </a>
+    </div>
+
     <div class="container">
         <h2 class="about-me-header">About Me</h2>
         <section class="section about-me">
@@ -371,18 +381,6 @@
                 </a>
             </div>
         </section>
-
-        <div class="social-sidebar">
-            <a href="https://gokcinosman.itch.io" target="_blank" rel="noopener noreferrer" aria-label="Itch.io">
-                <img src="https://static.itch.io/images/itchio-textless-white.svg" alt="Itch.io">
-            </a>
-            <a href="https://www.linkedin.com/in/osmangokcin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-            </a>
-            <a href="https://github.com/gokcinosman" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <img src="https://img.icons8.com/?size=100&id=12599&format=png&color=000000" alt="GitHub">
-            </a>
-        </div>
     </div>
     <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 </body>
