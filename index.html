@@ -12,7 +12,6 @@
             --card-bg: #2c3e50;
             --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-color);
@@ -21,51 +20,43 @@
             margin: 0;
             padding: 0;
         }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
         }
-
         @media (max-width: 768px) {
             .container {
                 margin-left: 0;
                 padding: 1rem;
             }
         }
-
         .hero {
             text-align: center;
             padding: 4rem 0;
             background-color: #2c3e50;
             color: var(--accent-color);
         }
-
         @media (max-width: 768px) {
             .hero {
                 padding: 2rem 0;
             }
         }
-
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
         }
-
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
             }
         }
-
         .social-links {
             display: flex;
             justify-content: center;
             gap: 1rem;
             margin-top: 2rem;
         }
-
         .social-links a {
             display: inline-block;
             width: 40px;
@@ -77,46 +68,38 @@
             justify-content: center;
             transition: background-color 0.3s ease;
         }
-
         .social-links a:hover {
             background-color: var(--accent-color);
         }
-
         .social-links img {
             width: 24px;
             height: 24px;
             filter: brightness(0) invert(1);
         }
-
         .section {
             margin-top: 4rem;
         }
-
         @media (max-width: 768px) {
             .section {
                 margin-top: 2rem;
             }
         }
-
         .projects {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
-
         @media (max-width: 768px) {
             .projects {
                 grid-template-columns: 1fr;
             }
         }
-
         .project-video {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 aspect ratio */
             height: 0;
             overflow: hidden;
         }
-
         .project-video iframe {
             position: absolute;
             top: 0;
@@ -125,7 +108,6 @@
             height: 100%;
             border: none;
         }
-
         .project {
             background-color: var(--card-bg);
             border-radius: 8px;
@@ -133,27 +115,22 @@
             box-shadow: var(--card-shadow);
             transition: transform 0.3s ease;
         }
-
         .project:hover {
             transform: translateY(-5px);
         }
-
         .project-image {
             width: 100%;
             height: 200px;
             object-fit: cover;
         }
-
         .project-content {
             padding: 1rem;
         }
-
         @media (max-width: 768px) {
             .project-content {
                 padding: 0.5rem;
             }
         }
-
         .projects-header, .sertifika-header, .about-me-header {
             text-align: center;
             margin-bottom: 2rem;
@@ -161,13 +138,11 @@
             font-weight: bold;
             color: #ffffff;
         }
-
         @media (max-width: 768px) {
             .projects-header, .sertifika-header, .about-me-header {
                 font-size: 1.8rem;
             }
         }
-
         .project-link {
             display: inline-block;
             margin-top: 1rem;
@@ -178,11 +153,9 @@
             border-radius: 4px;
             transition: background-color 0.3s ease;
         }
-
         .project-link:hover {
             background-color: #4fa8d5;
         }
-
         .about-me {
             display: flex;
             align-items: center;
@@ -191,7 +164,6 @@
             padding: 2rem;
             border-radius: 8px;
         }
-
         @media (max-width: 768px) {
             .about-me {
                 flex-direction: column;
@@ -201,28 +173,24 @@
                 margin: 0 auto;
             }
         }
-
         .about-me img {
             width: 200px;
             height: 200px;
             border-radius: 50%;
             object-fit: cover;
         }
-
         .certificates {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
             gap: 2rem;
         }
-
         @media (max-width: 768px) {
             .certificates {
                 flex-direction: column;
                 align-items: center;
             }
         }
-
         .certificate {
             text-align: center;
             background-color: var(--card-bg);
@@ -231,28 +199,23 @@
             width: 330px;
             transition: transform 0.3s ease;
         }
-
         .certificate:hover {
             transform: translateY(-5px);
         }
-
         .certificate img {
             width: 300px;
             height: 300px;
             object-fit: contain;
             margin-bottom: 1rem;
         }
-
         .certificate a {
             text-decoration: none;
             color: inherit;
         }
-
         .certificate p {
             font-weight: bold;
             margin-top: 0.5rem;
         }
-
         .social-sidebar {
             position: fixed;
             left: 20px; /* Masaüstü için sol kenardan boşluk */
@@ -267,7 +230,6 @@
             box-shadow: var(--card-shadow);
             z-index: 1000;
         }
-
         @media (max-width: 768px) {
             .social-sidebar {
                 left: 50%;
@@ -280,22 +242,41 @@
                 box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
             }
         }
-
         .social-sidebar a {
             transition: transform 0.3s ease;
         }
-
         .social-sidebar a:hover {
             transform: scale(1.1);
         }
-
         .social-sidebar img {
             width: 30px;
             height: 30px;
         }
+.footer {
+    background-color: #1a1a1a;  /* Sitenin koyu arka plan rengi */
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #333;  /* Daha koyu bir sınır çizgisi */
+    color: #ffffff;  /* Beyaz metin rengi */
+}
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.footer a {
+    color: #00ff00;  /* Yeşil link rengi - sitenin vurgu rengiyle aynı */
+    text-decoration: none;
+}
+.footer a:hover {
+    text-decoration: underline;
+    color: #33ff33;  /* Hover durumunda biraz daha açık yeşil */
+}
     </style>
 </head>
-
 <body>
     <div class="social-sidebar">
         <a href="https://gokcinosman.itch.io" target="_blank" rel="noopener noreferrer" aria-label="Itch.io">
@@ -308,7 +289,6 @@
             <img src="https://img.icons8.com/?size=100&id=12599&format=png&color=000000" alt="GitHub">
         </a>
     </div>
-
     <div class="container">
         <h2 class="about-me-header">About Me</h2>
         <section class="section about-me">
@@ -329,7 +309,6 @@
                 </p>
             </div>
         </section>
-
         <h2 class="projects-header">Projects</h2>
         <section class="section projects">
             <div class="project">
@@ -359,7 +338,6 @@
                 </div>
             </div>
         </section>
-
         <h2 class="sertifika-header">Certificates</h2>
         <section class="section certificates">
             <div class="certificate">
@@ -383,5 +361,10 @@
         </section>
     </div>
     <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Contact: <a href="mailto:osmangokcinn@gmail.com">osmangokcinn@gmail.com</a></p>
+        </div>
+    </footer>
 </body>
 </html>
